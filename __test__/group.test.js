@@ -9,31 +9,31 @@ describe('Group test using jest', () => {
         sum = 0;
     });
  
-    xtest.each( [ [1,1,2], [1,2,3] , [0,0,0], [2,1,3], [1,-1,0] ] )(
+    test.each( [ [1,1,2], [1,2,3] , [0,0,0], [2,1,3], [1,-1,0] ] )(
         'test %i + %i equals %i', (a,b,expected) => {
             expect(add(a,b)).toBe(expected);
         }
     );
     
-    xtest.each( [ [1,1,0], [1,2,-1] , [0,0,0], [2,1,1], [1,-1,2] ] )(
+    test.each( [ [1,1,0], [1,2,-1] , [0,0,0], [2,1,1], [1,-1,2] ] )(
         'test %i - %i equals %i', (a,b,expected) => {
             expect(sub(a,b)).toBe(expected);
         }
     );
 
-    xtest('Division throws error' , () => {
+    test('Division throws error' , () => {
             expect( () => divide(8,0) ).toThrow();
     });
 
 
-    xtest.each( ["radar","mom","level","solos","wow"] )(
+    test.each( ["radar","mom","level","solos","wow"] )(
         
         'test %s is palindrome',(text) =>{
             expect(isPalindrome(text)).toBeTruthy();
         }
     );
 
-    xtest.each( ["charles","table","sun","cat","dragon"] )(
+    test.each( ["charles","table","sun","cat","dragon"] )(
         
         'test %s is not palindrome',(text) =>{
             expect(isPalindrome(text)).not.toBe(true);
